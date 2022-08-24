@@ -12,6 +12,13 @@
   }
 }
 
+@layer base {
+  @font-face {
+    font-family: 'Megalopolis';
+    src: url(./fonts/MegalopolisX-xM6V.ttf);
+  }
+}
+
 [data-direction="ltr"] {
   * {
     direction: ltr;
@@ -83,7 +90,7 @@ html {
 }
 
 body {
-  @apply font-poppins antialiased text-sm text-[#32324D];
+  @apply font-poppins antialiased text-sm ;
 }
 
 .w-96 {

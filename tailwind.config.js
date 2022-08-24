@@ -361,7 +361,8 @@ module.exports = {
           'monospace'
         ],
         serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-        vidaloka: ['Vidaloka']
+        vidaloka: ['Vidaloka'],
+        megalopolis:['Megalopolis']
       },
       fontSize: {
         xxs: '0.625rem',
