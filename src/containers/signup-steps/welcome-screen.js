@@ -1,23 +1,48 @@
 import * as Icon from "react-feather";
+import Lottie from 'react-lottie';
+import animationData from '../../assets/horizontal-line.json';
 
 export default function WelcomeScreen (props) {
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
+    function exit(){
+        document.getElementById('animate1').classList.add('animate__fadeOutLeft')
+        document.getElementById('animate2').classList.add('animate__fadeOutLeft')
+        setTimeout(() => {
+            props.setStep(1)
+        },1000)
+    }
+
     return (
-        <div>
-            <div className={'flex justify-center'}>
-                <img className={'w-32'} src={'scissors.png'}/>
+        <div className={'px-10'}>
+            <div id={'animate2'} className={'animate__animated w-[100rem] absolute mt-[4rem] right-[2rem] animate__fadeInLeft'}>
+                <Lottie
+                    options={defaultOptions}
+                />
             </div>
-            <h1 className={' font-megalopolis text-[8rem] animate-slideUp'}>
+            <h1 className={' font-megalopolis text-[6rem] md:text-[8rem] animate-slideUp'}>
                 LINE UP!
             </h1>
-            <div className={'text-2xl animate__animated animate__fadeInDown animate__delay-1s'}>
-                Schedule your preferred barber at your convenience.
+            <div id={'animate1'} className={'animate__animated'}>
+                <div className={'text-2xl animate__animated animate__fadeInDown animate__delay-1s'}>
+                    Schedule your preferred barber at your convenience.
+                </div>
+                <div className={'flex justify-end mt-10'}>
+                    <button onClick={() => exit() }
+                            className={'gap-4 flex items-center rounded-xl bg-[#D58258] hover:bg-black text-white p-4 px-10 animate__animated animate__fadeInDown transition ease-in-out duration-200'}>
+                        Get Started
+                        <Icon.ChevronRight className={'w-5'}/>
+                    </button>
+                </div>
             </div>
-            <div className={'flex justify-end mt-10'}>
-                <button onClick={()=>props.setStep(1)} className={'gap-4 flex items-center rounded-xl bg-[#D58258] text-white p-4 px-10 animate__animated animate__fadeInDown'}>
-                    Get Started
-                    <Icon.ChevronRight className={'w-5'}/>
-                </button>
-            </div>
+
         </div>
     )
 }
