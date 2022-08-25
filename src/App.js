@@ -7,6 +7,8 @@ import ContactFormScreen from "./containers/signup-steps/contact-form-screen";
 import WelcomeScreen from "./containers/signup-steps/welcome-screen";
 import FlipMove from "react-flip-move";
 import StyleScreen from "./containers/signup-steps/style-screen";
+import Lottie from "react-lottie";
+import animationData from "./assets/circular-line.json";
 
 function App() {
     const [step, setStep] = useState(0)
@@ -17,6 +19,15 @@ function App() {
         {index: 1, title:'contact',content: <ContactFormScreen setStep={setStep} setFirstName={setFirstName}/>},
         {index: 2, title:'style',content: <StyleScreen setStep={setStep} firstName={firstName}/>},
     ]
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
 
     const customEnterAnimation = {
         from: { transform: 'translateX(6%)', transformOrigin: 'left center', opacity:'0' },
@@ -36,6 +47,15 @@ function App() {
                         null
                     }
                 </div>
+                {step === 2 ?
+                    <div id={'animate1'} className={'animate__animated w-[35rem] fixed -top-[20rem] -right-[10rem] animate__fadeInDown'}>
+                        <Lottie
+                            options={defaultOptions}
+                        />
+                    </div>
+                    :
+                    null
+                }
                 <FlipMove enterAnimation={customEnterAnimation} leaveAnimation={customLeaveAnimation} typeName={null}>
                     {pages.map((page)=>{
                         if(step === page.index){

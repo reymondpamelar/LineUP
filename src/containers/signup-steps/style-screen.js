@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 import ContactFormScreen from "../../containers/signup-steps/contact-form-screen";
 import FlipMove from "react-flip-move";
 import Overview from "./style-screen/overview";
+import Lottie from "react-lottie";
+import animationData from "../../assets/circular-line.json";
 
 export default function StyleScreen(props) {
     const [step, setStep] = useState(0)

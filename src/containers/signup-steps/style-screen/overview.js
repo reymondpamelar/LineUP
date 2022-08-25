@@ -1,17 +1,7 @@
 import TextInput from "../../../components/UI/Form/text-input";
 import * as Icon from "react-feather";
-import animationData from "../../../assets/circular-line.json";
-import Lottie from "react-lottie";
 
 export default function Overview (props) {
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
 
     function exit(){
         setTimeout(() => {
@@ -22,11 +12,6 @@ export default function Overview (props) {
     return (
         <div key={'contact'} className={'px-20'}>
             <div>
-                <div id={'animate1'} className={'animate__animated w-[35rem] fixed -top-[40rem] -right-[40rem] -z-10 animate__fadeInDown'}>
-                    <Lottie
-                        options={defaultOptions}
-                    />
-                </div>
                 <h1 className={'relative capitalize'}>
                     Hello {props.firstName}!
                 </h1>
