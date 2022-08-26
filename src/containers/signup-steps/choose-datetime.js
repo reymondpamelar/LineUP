@@ -41,7 +41,7 @@ export default function ChooseDatetime(props) {
     const [value, setValue] = useState(dayjs());
     return (
         <div id={'styleScreen'} className={'px-20 transition ease-in-out duration-500 w-screen h-screen flex grid justify-center items-center p-10'}>
-            <div id={'animate1'} className={'animate__animated w-full fixed bottom-0 -left-[5rem] animate__fadeInLefts'}>
+            <div id={'animate1'} className={'animate__animated w-full fixed bottom-0 -left-[5rem] animate__fadeInLeft'}>
                 <Lottie
                     options={defaultOptions}
                 />
