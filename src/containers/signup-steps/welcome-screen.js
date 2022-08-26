@@ -13,8 +13,8 @@ export default function WelcomeScreen (props) {
     };
 
     function exit(){
-        document.getElementById('animate1').classList.add('animate__fadeOutLeft')
-        document.getElementById('animate2').classList.add('animate__fadeOutLeft')
+        document.getElementById('animate1').classList.add('animate__fadeOutRight')
+        document.getElementById('animate2').classList.add('animate__fadeOutRight')
         setTimeout(() => {
             props.setStep(1)
         },1000)
@@ -28,7 +28,7 @@ export default function WelcomeScreen (props) {
                         options={defaultOptions}
                     />
                 </div>
-                <h1 className={' font-megalopolis text-[6rem] md:text-[8rem] animate__animated animate__fadeInLeft'}>
+                <h1 className={' font-megalopolis text-[6rem] md:text-[8rem] animate__animated animate__fadeInRight'}>
                     LINE UP!
                 </h1>
             </div>
