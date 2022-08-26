@@ -1,5 +1,3 @@
-import TextInput from "../../../components/UI/Form/text-input";
-import * as Icon from "react-feather";
 
 export default function Trim (props) {
 
@@ -9,7 +7,6 @@ export default function Trim (props) {
         props.setTrimSet(newTrimSet)
         console.log(props.trimSet)
     }
-
     return (
         <div className={''}>
             <h2 className={'mt-10'}>
