@@ -1,12 +1,23 @@
 
+
 export default function Trim (props) {
 
-    function handleSubmit(e){
+    function handleTrimTypeSubmit(e){
         let newTrimSet = props.trimSet
-        newTrimSet[e.target.value] = e.target.checked
+        if(e.target.checked){
+            newTrimSet.trimTypes.push(e.target.value)
+        }else{
+            newTrimSet.trimTypes.splice(e.target.value, 1)
+        }
         props.setTrimSet(newTrimSet)
-        console.log(props.trimSet)
     }
+
+    function handleTrimStyleSubmit(e){
+        let newTrimSet = props.trimSet
+        newTrimSet.trimStyle = e.target.value
+        props.setTrimSet(newTrimSet)
+    }
+
     return (
         <div className={''}>
             <h2 className={'mt-10'}>
@@ -17,7 +28,7 @@ export default function Trim (props) {
                     <div className={'mt-4 text-lg'}>
                         Choose all that apply:
                     </div>
-                    <form onChange={(e) => handleSubmit(e)} className={' mt-4 gap-10 flex justify-center flex-wrap'}>
+                    <form onChange={(e) => handleTrimTypeSubmit(e)} className={' mt-4 gap-10 flex justify-center flex-wrap'}>
                         <label htmlFor={'Remove Bulk'} className={'hover:scale-110 transition ease-in-out duration-400 hover:shadow-lg rounded-xl'}>
                             <div className={'cursor-pointer flex justify-center items-center w-32 h-32 rounded-t-xl overflow-hidden border'}>
                                 <img className={'object-fill h-full'} src={'remove-bulk.png'}/>
@@ -48,16 +59,16 @@ export default function Trim (props) {
                     </form>
                 </div>
 
-                <div>
+                <div className={'mt-10'}>
                     <div className={'mt-4 text-lg'}>
                         If applicable, choose one:
                     </div>
-                    <form className={' mt-4 gap-10 flex justify-center flex-wrap'}>
+                    <form onChange={(e) => handleTrimStyleSubmit(e)} className={' mt-4 gap-10 flex justify-center flex-wrap'}>
                         <label htmlFor={'comb-over'} className={'hover:scale-110 transition ease-in-out duration-400 hover:shadow-lg rounded-xl'}>
                             <div className={'p-2 cursor-pointer flex justify-center items-center w-32 h-32 rounded-t-xl overflow-hidden border'}>
                                 <img className={'object-cover'} src={'fade.png'}/>
                             </div>
-                            <input value='comb-over' name="preset" id="comb-over" type="radio" className={'hidden peer'} />
+                            <input value='comb-over' name="trimStyle" id="comb-over" type="radio" className={'hidden peer'} />
                             <div className={'bg-black peer-checked:bg-[#ECB984] rounded-b-xl text-white p-2 transition ease-in-out duration-500'}>
                                 Comb-over
                             </div>
@@ -66,7 +77,7 @@ export default function Trim (props) {
                             <div className={'p-2 cursor-pointer flex justify-center items-center w-32 h-32 rounded-t-xl overflow-hidden border'}>
                                 <img className={'p-4 object-cover'} src={'midpart.png'}/>
                             </div>
-                            <input value='part' name="preset" id="part" type="radio" className={'hidden peer'} />
+                            <input value='part' name="trimStyle" id="part" type="radio" className={'hidden peer'} />
                             <div className={'bg-black peer-checked:bg-[#ECB984] rounded-b-xl text-white p-2 transition ease-in-out duration-500'}>
                                 Part
                             </div>
@@ -75,7 +86,7 @@ export default function Trim (props) {
                             <div className={'p-2 cursor-pointer flex justify-center items-center w-32 h-32 rounded-t-xl overflow-hidden border'}>
                                 <img className={'p-1 ml-2 object-cover'} src={'manbun.png'}/>
                             </div>
-                            <input value='manbun' name="preset" id="manbun" type="radio" className={'hidden peer'} />
+                            <input value='manbun' name="trimStyle" id="manbun" type="radio" className={'hidden peer'} />
                             <div className={'bg-black peer-checked:bg-[#ECB984] rounded-b-xl text-white p-2 transition ease-in-out duration-500'}>
                                 Manbun
                             </div>

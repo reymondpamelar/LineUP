@@ -9,7 +9,10 @@ import Fade from "./style-screen/fade";
 export default function StyleScreen(props) {
     const [step, setStep] = useState(0)
     const [preset, setPreset] = useState('')
-    const [trimSet, setTrimSet] = useState({})
+    const [trimSet, setTrimSet] = useState({
+        trimTypes: [],
+        trimStyle: ''
+    })
     const [fadeType, setFadeType] = useState({})
 
     const sections = [

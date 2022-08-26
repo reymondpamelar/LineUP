@@ -14,6 +14,7 @@ function App() {
     const [step, setStep] = useState(0)
     const [contactDetails, setContactDetails] = useState({})
     const [hairType, setHairType] = useState({})
+    const [styleSettings, setStyleSettings] = useState({})
 
     const pages = [
         {index: 0, title:'welcome', content: <WelcomeScreen setStep={setStep}/>},
