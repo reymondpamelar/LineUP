@@ -11,6 +11,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import Stack from '@mui/material/Stack';
 import BarberDetails from "../../../barber-details";
+import {createTheme, ThemeProvider} from "@mui/material";
 
 export default function BarberDateTime(props) {
     let availability = props.barberSettings.availability
@@ -50,24 +51,41 @@ export default function BarberDateTime(props) {
         return day === 0 || day === 6;
     };
 
+    const theme = createTheme({
+        status: {
+            danger: '#e53e3e',
+        },
+        palette: {
+            primary: {
+                main: '#ECB984',
+                darker: '#053e85',
+            },
+            neutral: {
+                main: '#64748B',
+                contrastText: '#fff',
+            },
+        },
+    });
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <BarberDetails barber={props.barberSettings} forList={false}/>
-            <Stack spacing={3}>
-                <DateTimePicker
-                    renderInput={(params) => <TextField {...params} />}
-                    label="Ignore time in each day"
-                    value={value}
-                    views={['day', 'hours']}
-                    onChange={(newValue) => {
-                        setValue(newValue);
-                    }}
-                    shouldDisableDate={isWeekend}
-                    minDate={moment()}
-                    minTime={moment(minTime)}
-                    maxTime={moment(maxTime)}
-                />
-            </Stack>
+            <ThemeProvider theme={theme}>
+                <BarberDetails barber={props.barberSettings} forList={false}/>
+                <Stack spacing={3}>
+                    <DateTimePicker
+                        renderInput={(params) => <TextField color={"primary"} {...params} />}
+                        label="Choose a time and date for your appointment:"
+                        value={value}
+                        views={['day', 'hours']}
+                        onChange={(newValue) => {
+                            setValue(newValue);
+                        }}
+                        shouldDisableDate={isWeekend}
+                        minDate={moment()}
+                        minTime={moment(minTime)}
+                        maxTime={moment(maxTime)}
+                    />
+                </Stack>
+            </ThemeProvider>
         </LocalizationProvider>
     );
 }
