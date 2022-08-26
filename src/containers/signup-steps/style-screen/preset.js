@@ -6,17 +6,15 @@ export default function Preset (props) {
 
     return (
         <div className={''}>
+            <h1 className={'capitalize'}>
+                Hello {props.contactDetails.firstName}!
+            </h1>
             <div>
-                <h1 className={'relative capitalize'}>
-                    Hello {props.firstName}!
-                </h1>
-            </div>
-            <div>
-                <h2 className={'relative mt-10'}>
+                <h2 className={'mt-10'}>
                     What are you in for?
                 </h2>
-                <form onChange={(e) => props.setPreset(e.target.value)} className={' mt-10 gap-10 flex justify-center flex-wrap'}>
-                    <label htmlFor={'shave'} className={'hover:scale-110 transition ease-in-out duration-400 hover:shadow-lg'}>
+                <form className={' mt-10 gap-10 flex justify-center flex-wrap'}>
+                    <label htmlFor={'shave'} className={'hover:scale-110 transition ease-in-out duration-400 hover:shadow-lg rounded-xl'}>
                         <div className={'cursor-pointer flex justify-center items-center w-32 h-32 rounded-t-xl overflow-hidden border'}>
                             <img className={'object-cover'} src={'bald.png'}/>
                         </div>
@@ -25,7 +23,7 @@ export default function Preset (props) {
                             Shave
                         </div>
                     </label>
-                    <label htmlFor={'trim'} className={'hover:scale-110 transition ease-in-out duration-400 hover:shadow-lg'}>
+                    <label htmlFor={'trim'} className={'hover:scale-110 transition ease-in-out duration-400 hover:shadow-lg rounded-xl'}>
                         <div className={'cursor-pointer flex justify-center items-center w-32 h-32 rounded-t-xl overflow-hidden border'}>
                             <img className={'w-16 object-cover'} src={'scissors.png'}/>
                         </div>

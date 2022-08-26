@@ -12,12 +12,13 @@ import animationData from "./assets/circular-line.json";
 
 function App() {
     const [step, setStep] = useState(0)
-    const [firstName, setFirstName] = useState('')
+    const [contactDetails, setContactDetails] = useState({})
+    const [hairType, setHairType] = useState({})
 
     const pages = [
         {index: 0, title:'welcome', content: <WelcomeScreen setStep={setStep}/>},
-        {index: 1, title:'contact',content: <ContactFormScreen setStep={setStep} setFirstName={setFirstName}/>},
-        {index: 2, title:'style',content: <StyleScreen setStep={setStep} firstName={firstName}/>},
+        {index: 1, title:'contact',content: <ContactFormScreen setStep={setStep} setContactDetails={setContactDetails} setHairType={setHairType}/>},
+        {index: 2, title:'style',content: <StyleScreen setStep={setStep} contactDetails={contactDetails}/>},
     ]
 
     const defaultOptions = {

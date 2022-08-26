@@ -1,5 +1,3 @@
-//const Text = ({name, label, type, placeholder, onChange, children}, props) => {
-import {useRef} from "react";
 
 const TextInput = (props) => {;
     const twStyles = [
