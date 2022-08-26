@@ -9,17 +9,22 @@ import FlipMove from "react-flip-move";
 import StyleScreen from "./containers/signup-steps/style-screen";
 import Lottie from "react-lottie";
 import animationData from "./assets/circular-line.json";
+import ChooseBarberScreen from "./containers/signup-steps/choose-barber-screen";
+import ChooseDatetime from "./containers/signup-steps/choose-datetime";
 
 function App() {
     const [step, setStep] = useState(0)
     const [contactDetails, setContactDetails] = useState({})
     const [hairType, setHairType] = useState({})
     const [styleSettings, setStyleSettings] = useState({})
+    const [barberSettings, setBarberSettings] = useState({})
 
     const pages = [
         {index: 0, title:'welcome', content: <WelcomeScreen setStep={setStep}/>},
         {index: 1, title:'contact',content: <ContactFormScreen setStep={setStep} setContactDetails={setContactDetails} setHairType={setHairType}/>},
-        {index: 2, title:'style',content: <StyleScreen setStep={setStep} contactDetails={contactDetails}/>},
+        {index: 2, title:'style',content: <StyleScreen setStep={setStep} contactDetails={contactDetails} setStyleSettings={setStyleSettings}/>},
+        {index: 3, title:'barber',content: <ChooseBarberScreen setStep={setStep} setBarberSettings={setBarberSettings}/>},
+        {index: 4, title:'dateTime',content: <ChooseDatetime setStep={setStep} barberSettings={barberSettings}/>},
     ]
 
     const defaultOptions = {

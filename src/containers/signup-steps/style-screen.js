@@ -21,15 +21,20 @@ export default function StyleScreen(props) {
         {index: 1, title:'fade', enabled: preset === 'fade' || preset === 'trim + fade', content: <Fade setStep={setStep} setFadeType={setFadeType}/>},
     ]
 
-    useEffect(() => {
-        console.log(trimSet)
-    },[trimSet])
-
     function nextStep(){
         document.getElementById('bottom').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+        if(preset && step === 1){
+            let styleSettings = {
+                preset,
+                trimSet,
+                fadeType
+            }
+            props.setStyleSettings(styleSettings)
+            props.setStep(3)
+        }
         if(preset){
             setTimeout(() => {
-                setStep(step + 1)
+                setStep(1)
             },0)
         }
     }
