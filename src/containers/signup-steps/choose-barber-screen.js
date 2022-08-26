@@ -105,7 +105,7 @@ export default function ChooseBarberScreen(props) {
                         return(
                             <div>
                                 <input onChange={(e) => handleChange(e)} value={barber.name} name={'chooseBarber'} id={barber.name} type={'radio'} className={'hidden peer'}/>
-                                <label htmlFor={barber.name} key={barber.name} className={'peer-checked:bg-[#D58258] peer-checked:text-white cursor-pointer hover:bg-black bg-white hover:text-white grid text-left w-[40rem] border rounded-xl p-8 px-6 my-4 text-xl transition ease-in-out duration-150'}>
+                                <label htmlFor={barber.name} key={barber.name} className={'peer-checked:bg-[#D58258] peer-checked:text-white cursor-pointer hover:bg-black bg-white hover:text-white grid text-left max:w-[40rem] border rounded-xl p-8 px-6 my-4 text-xl transition ease-in-out duration-150'}>
                                     <div className={'grid grid-cols-2 border-b pb-4'}>
                                         <div>
                                             {barber.name}
@@ -114,32 +114,32 @@ export default function ChooseBarberScreen(props) {
                                             {stars.map((star) => {return star})}
                                         </div>
                                     </div>
-                                    <div className={'grid grid-cols-5 mt-4 text-sm divide-x'}>
-                                        <div className={'flex grid justify-center text-center items-center'}>
+                                    <div className={'md:flex justify-center flex-wrap w-full mt-4 text-sm divide-y md:divide-y-0 md:divide-x gap-4 md:space-y-0'}>
+                                        <div className={'flex px-4 grid justify-center text-center items-center'}>
                                             <div>
                                                 Mon
                                             </div>
                                             <div>{barber.availability.mon[0]}am - {barber.availability.mon[1]}pm</div>
                                         </div>
-                                        <div className={'flex grid justify-center text-center items-center'}>
+                                        <div className={'flex px-4  grid justify-center text-center items-center'}>
                                             <div>
                                                 Tues
                                             </div>
                                             <div>{barber.availability.tues[0]}am - {barber.availability.tues[1]}pm</div>
                                         </div>
-                                        <div className={'flex grid justify-center text-center items-center'}>
+                                        <div className={'flex px-4 grid justify-center text-center items-center'}>
                                             <div>
                                                 Wed
                                             </div>
                                             <div>{barber.availability.wed[0]}am - {barber.availability.wed[1]}pm</div>
                                         </div>
-                                        <div className={'flex grid justify-center text-center items-center'}>
+                                        <div className={'flex px-4 grid justify-center text-center items-center'}>
                                             <div>
                                                 Thurs
                                             </div>
                                             <div>{barber.availability.thurs[0]}am - {barber.availability.thurs[1]}pm</div>
                                         </div>
-                                        <div className={'flex grid justify-center text-center items-center'}>
+                                        <div className={'flex px-4 grid justify-center text-center items-center'}>
                                             <div>
                                                 Fri
                                             </div>

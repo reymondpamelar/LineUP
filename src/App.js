@@ -55,7 +55,7 @@ function App() {
                     }
                 </div>
                 {step === 2 ?
-                    <div id={'animate1'} className={'animate__animated w-[35rem] fixed -top-[20rem] -right-[10rem] animate__fadeInDown'}>
+                    <div id={'animate1'} className={'animate__animated w-[25rem] md:w-[35rem] fixed md:-top-[20rem] -right-[15rem] md:-right-[10rem] animate__fadeInDown'}>
                         <Lottie
                             options={defaultOptions}
                         />

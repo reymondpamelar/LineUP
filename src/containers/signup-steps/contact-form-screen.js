@@ -24,6 +24,7 @@ export default function ContactFormScreen (props) {
         e.preventDefault()
         if (!firstName || !lastName || !emailAddress || !hairType){
             if(!hairType){
+                document.getElementById('hairTypeError').classList.remove('opacity-0')
                 document.getElementById('hairTypeError').classList.add('opacity-100')
                 document.getElementById('hairTypeError').classList.remove('absolute')
             }
@@ -87,9 +88,7 @@ export default function ContactFormScreen (props) {
                     </h1>
 
                     <div id={'hairTypeError'} className={'opacity-0 -z-10 absolute transition ease-in-out duration-500 bg-[#963A2F] gap-4 flex justify-center text-white top-1/4 p-4 rounded-xl border text-sm'}>
-                        <Icon.ChevronDown/>
                         Please Choose a hair type below
-                        <Icon.ChevronDown/>
                     </div>
                     <div className={' mt-4 flex justify-center flex-wrap'}>
                         <div className={'flex justify-center'}>
