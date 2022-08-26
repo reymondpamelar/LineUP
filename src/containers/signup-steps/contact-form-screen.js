@@ -88,7 +88,7 @@ export default function ContactFormScreen (props) {
                     </h1>
 
                     <div id={'hairTypeError'} className={'opacity-0 -z-10 absolute transition ease-in-out duration-500 bg-[#963A2F] gap-4 flex justify-center text-white top-1/4 p-4 rounded-xl border text-sm'}>
-                        Please Choose a hair type below
+                        Please choose a hair type below
                     </div>
                     <div className={' mt-4 flex justify-center flex-wrap'}>
                         <div className={'flex justify-center'}>

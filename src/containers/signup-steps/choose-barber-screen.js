@@ -70,8 +70,14 @@ export default function ChooseBarberScreen(props) {
     },[])
 
     function nextStep(){
-        props.setStep(4)
-        props.setBarberSettings(chosenBarber)
+        if(!chosenBarber.hasOwnProperty('name')){
+            document.getElementById('chooseBarberError').classList.remove('opacity-0')
+            document.getElementById('chooseBarberError').classList.add('opacity-100')
+            document.getElementById('chooseBarberError').classList.remove('absolute')
+        }else{
+            props.setStep(4)
+            props.setBarberSettings(chosenBarber)
+        }
     }
 
     return (
@@ -86,6 +92,9 @@ export default function ChooseBarberScreen(props) {
                     <h1 >
                         Choose a barber:
                     </h1>
+                    <div id={'chooseBarberError'} className={'opacity-0 -z-10 absolute transition ease-in-out duration-500 bg-[#963A2F] gap-4 flex justify-center text-white top-1/4 p-4 rounded-xl border text-sm'}>
+                        Please choose a barber below
+                    </div>
                     {barberTeam.map((barber) => {
 
                         function handleChange(e) {
