@@ -4,11 +4,11 @@ import {useEffect, useState} from "react";
 import FlipMove from "react-flip-move";
 import animationData from "../../assets/squiggly-line.json";
 import Lottie from "react-lottie";
+import BarberDetails from "../../components/barber-details";
 
 export default function ChooseBarberScreen(props) {
     const [barberTeam, setBarberTeam] = useState([])
     const [chosenBarber, setChosenBarber] = useState({})
-    const [availability, setAvailability] = useState({})
 
 
     const customEnterAnimation = {
@@ -32,35 +32,35 @@ export default function ChooseBarberScreen(props) {
         {
             name: 'Reymond',
             rating:5,
-            availability: {
-                mon:[10,6],
-                tues:[10,6],
-                wed:[10,6],
-                thurs:[10,6],
-                fri:[10,6],
-            }
+            availability: [
+                [10,18],
+                [10,18],
+                [10,18],
+                [10,18],
+                [10,18],
+            ]
         },
         {
             name: 'Alice',
             rating:4,
-            availability: {
-                mon:[10,6],
-                tues:[10,6],
-                wed:[10,6],
-                thurs:[10,6],
-                fri:[10,6],
-            }
+            availability: [
+                [10,18],
+                [10,18],
+                [10,18],
+                [10,18],
+                [10,18],
+            ]
         },
         {
             name: 'Bob',
             rating:4,
-            availability: {
-                mon:[10,6],
-                tues:[10,6],
-                wed:[10,6],
-                thurs:[10,6],
-                fri:[10,6],
-            }
+            availability: [
+                [10,18],
+                [10,18],
+                [10,18],
+                [10,18],
+                [10,18],
+            ]
         }
     ]
     useEffect(() => {
@@ -71,10 +71,7 @@ export default function ChooseBarberScreen(props) {
 
     function nextStep(){
         props.setStep(4)
-        props.setBarberSettings([
-            chosenBarber,
-            availability
-        ])
+        props.setBarberSettings(chosenBarber)
     }
 
     return (
@@ -90,63 +87,14 @@ export default function ChooseBarberScreen(props) {
                         Choose a barber:
                     </h1>
                     {barberTeam.map((barber) => {
-                        let stars = []
-                        function numStars(){
-                            for (let i = 0; i < barber.rating; i++){
-                                stars.push(<Icon.Star fill={chosenBarber === barber.name ? 'white' : '#D58258'} stroke={''}/>)
-                            }
-                        }
-                        numStars()
 
                         function handleChange(e) {
-                            setChosenBarber(e.target.value)
-                            setAvailability(barber.availability)
+                            setChosenBarber(barber)
                         }
                         return(
                             <div>
                                 <input onChange={(e) => handleChange(e)} value={barber.name} name={'chooseBarber'} id={barber.name} type={'radio'} className={'hidden peer'}/>
-                                <label htmlFor={barber.name} key={barber.name} className={'peer-checked:bg-[#D58258] peer-checked:text-white cursor-pointer hover:bg-black bg-white hover:text-white grid text-left max:w-[40rem] border rounded-xl p-8 px-6 my-4 text-xl transition ease-in-out duration-150'}>
-                                    <div className={'grid grid-cols-2 border-b pb-4'}>
-                                        <div>
-                                            {barber.name}
-                                        </div>
-                                        <div className={'flex justify-end'}>
-                                            {stars.map((star) => {return star})}
-                                        </div>
-                                    </div>
-                                    <div className={'md:flex justify-center flex-wrap w-full mt-4 text-sm divide-y md:divide-y-0 md:divide-x gap-4 md:space-y-0'}>
-                                        <div className={'flex px-4 grid justify-center text-center items-center'}>
-                                            <div>
-                                                Mon
-                                            </div>
-                                            <div>{barber.availability.mon[0]}am - {barber.availability.mon[1]}pm</div>
-                                        </div>
-                                        <div className={'flex px-4  grid justify-center text-center items-center'}>
-                                            <div>
-                                                Tues
-                                            </div>
-                                            <div>{barber.availability.tues[0]}am - {barber.availability.tues[1]}pm</div>
-                                        </div>
-                                        <div className={'flex px-4 grid justify-center text-center items-center'}>
-                                            <div>
-                                                Wed
-                                            </div>
-                                            <div>{barber.availability.wed[0]}am - {barber.availability.wed[1]}pm</div>
-                                        </div>
-                                        <div className={'flex px-4 grid justify-center text-center items-center'}>
-                                            <div>
-                                                Thurs
-                                            </div>
-                                            <div>{barber.availability.thurs[0]}am - {barber.availability.thurs[1]}pm</div>
-                                        </div>
-                                        <div className={'flex px-4 grid justify-center text-center items-center'}>
-                                            <div>
-                                                Fri
-                                            </div>
-                                            <div>{barber.availability.fri[0]}am - {barber.availability.fri[1]}pm</div>
-                                        </div>
-                                    </div>
-                                </label>
+                                <BarberDetails barber={barber} chosenBarber={chosenBarber.name} forList={true}/>
                             </div>
                         )
                     })}
