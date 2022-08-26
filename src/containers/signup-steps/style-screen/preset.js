@@ -3,6 +3,10 @@ import * as Icon from "react-feather";
 
 export default function Preset (props) {
 
+    function handleChange(e){
+        props.setStep(0)
+        props.setPreset(e.target.value)
+    }
 
     return (
         <div className={''}>
@@ -18,7 +22,7 @@ export default function Preset (props) {
                         <div className={'cursor-pointer flex justify-center items-center w-32 h-32 rounded-t-xl overflow-hidden border'}>
                             <img className={'object-cover'} src={'bald.png'}/>
                         </div>
-                        <input onChange={(e) => props.setPreset(e.target.value)} value='shave' name="preset" id="shave" type="radio" className={'hidden peer'} />
+                        <input onChange={(e) => handleChange(e)} value='shave' name="preset" id="shave" type="radio" className={'hidden peer'} />
                         <div className={'bg-black peer-checked:bg-[#ECB984] rounded-b-xl text-white p-2 transition ease-in-out duration-500'}>
                             Shave
                         </div>
@@ -27,7 +31,7 @@ export default function Preset (props) {
                         <div className={'cursor-pointer flex justify-center items-center w-32 h-32 rounded-t-xl overflow-hidden border'}>
                             <img className={'w-16 object-cover'} src={'scissors.png'}/>
                         </div>
-                        <input onChange={(e) => props.setPreset(e.target.value)} value='trim' name="preset" id="trim" type="radio" className={'hidden peer'} />
+                        <input onChange={(e) => handleChange(e)} value='trim' name="preset" id="trim" type="radio" className={'hidden peer'} />
                         <div className={'bg-black peer-checked:bg-[#ECB984] rounded-b-xl text-white p-2 transition ease-in-out duration-500'}>
                             Trim
                         </div>
@@ -36,7 +40,7 @@ export default function Preset (props) {
                         <div className={'p-2 cursor-pointer flex justify-center items-center w-32 h-32 rounded-t-xl overflow-hidden border'}>
                             <img className={'object-cover'} src={'fade.png'}/>
                         </div>
-                        <input onChange={(e) => props.setPreset(e.target.value)} value='fade' name="preset" id="fade" type="radio" className={'hidden peer'} />
+                        <input onChange={(e) => handleChange(e)} value='fade' name="preset" id="fade" type="radio" className={'hidden peer'} />
                         <div className={'bg-black peer-checked:bg-[#ECB984] rounded-b-xl text-white p-2 transition ease-in-out duration-500'}>
                             Fade
                         </div>
@@ -46,7 +50,7 @@ export default function Preset (props) {
                             <img className={'w-10 ml-2 object-cover'} src={'scissors.png'}/>
                             <img className={'object-cover'} src={'fade.png'}/>
                         </div>
-                        <input onChange={(e) => props.setPreset(e.target.value)} value='trim + fade' name="preset" id="trim + fade" type="radio" className={'hidden peer'} />
+                        <input onChange={(e) => handleChange(e)} value='trim + fade' name="preset" id="trim + fade" type="radio" className={'hidden peer'} />
                         <div className={'bg-black peer-checked:bg-[#ECB984] rounded-b-xl text-white p-2 transition ease-in-out duration-500'}>
                             Trim + Fade
                         </div>
