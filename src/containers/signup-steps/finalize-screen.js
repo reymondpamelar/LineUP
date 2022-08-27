@@ -1,11 +1,26 @@
 import StyleChoices from "../../components/style-choices";
 import * as Icon from "react-feather";
-import moment from "moment";
 
 export default function FinalizeScreen (props) {
 
-    function handleSubmit(e){
-
+    const handleSubmit = async() =>{
+        console.log('sending')
+        const req = await fetch(`http://localhost:8080/api/send_confirmation_mail`, {
+            method: 'POST',
+            headers: {'Content-Type':'application/json',
+                'Access-Control-Allow-Origin':'*',
+                'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'},
+            body: JSON.stringify({
+                contactDetails: props.contactDetails,
+                hairType: props.hairType,
+                styleSettings: props.styleSettings,
+                barber: props.barberSettings.name
+            })
+        })
+        console.log(req.status)
+        return {
+            statusCode: req.status,
+        };
     }
     return (
         <div className={'px-10'}>

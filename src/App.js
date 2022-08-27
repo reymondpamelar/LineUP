@@ -12,6 +12,7 @@ import animationData from "./assets/circular-line.json";
 import ChooseBarberScreen from "./containers/signup-steps/choose-barber-screen";
 import ChooseDatetime from "./containers/signup-steps/choose-datetime";
 import FinalizeScreen from "./containers/signup-steps/finalize-screen";
+import moment from "moment";
 
 function App() {
     const [step, setStep] = useState(0)
@@ -19,7 +20,7 @@ function App() {
     const [hairType, setHairType] = useState({})
     const [styleSettings, setStyleSettings] = useState({})
     const [barberSettings, setBarberSettings] = useState({})
-    const [date, setDate] = useState(new Date())
+    const [date, setDate] = useState(moment())
 
     const pages = [
         {index: 0, title:'welcome', content: <WelcomeScreen setStep={setStep}/>},
@@ -27,7 +28,7 @@ function App() {
         {index: 2, title:'style',content: <StyleScreen setStep={setStep} contactDetails={contactDetails} setStyleSettings={setStyleSettings}/>},
         {index: 3, title:'barber',content: <ChooseBarberScreen setStep={setStep} setBarberSettings={setBarberSettings}/>},
         {index: 4, title:'dateTime',content: <ChooseDatetime setStep={setStep} barberSettings={barberSettings} date={date} setDate={setDate}/>},
-        {index: 5, title:'finalize',content: <FinalizeScreen setStep={setStep} barberSettings={barberSettings} styleSettings={styleSettings} date={date}/>},
+        {index: 5, title:'finalize',content: <FinalizeScreen setStep={setStep} contactDetails={contactDetails} hairType={hairType} styleSettings={styleSettings} barberSettings={barberSettings} date={date}/>},
     ]
 
     const defaultOptions = {

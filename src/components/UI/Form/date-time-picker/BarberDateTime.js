@@ -14,34 +14,42 @@ import BarberDetails from "../../../barber-details";
 import {createTheme, ThemeProvider} from "@mui/material";
 
 export default function BarberDateTime(props) {
-    let [availability] = useState(props.barberSettings.availability)
+    let availability = props.barberSettings.availability
     let [minTime, setMinTime] = useState(moment())
     let [maxTime, setMaxTime] = useState(moment())
-    const [value, setValue] = useState(moment(props.date));
+    const [value, setValue] = useState(props.date.set('minute',0));
 
     useEffect(() => {
-        let newValue = moment(value)
-        if(newValue.get('hour') > 0){
-            newValue.set('minute', 0)
-            setValue(newValue)
-        }
-        let day = moment(value).get('day')
+        let day = value.get('day')
 
-        if(availability[day-1][0] < 12){
+
+        if(day !== 6 && day !== 7){
             let newMinTime = moment(minTime)
             newMinTime.set('hour', availability[day-1][0])
             newMinTime.set('minute', 0)
             newMinTime.set('second', 0)
             setMinTime(newMinTime)
-        }
 
-        if(availability[day-1][1] > 12){
             let newMaxTime = moment(maxTime)
             newMaxTime.set('hour', availability[day-1][1])
             newMaxTime.set('minute', 0)
             newMaxTime.set('second', 0)
             setMaxTime(newMaxTime)
+        }else{
+            setValue(value.add(1, 'weeks').startOf('isoWeek'))
+            let newMinTime = moment(minTime)
+            newMinTime.set('hour', availability[0][0])
+            newMinTime.set('minute', 0)
+            newMinTime.set('second', 0)
+            setMinTime(newMinTime)
+
+            let newMaxTime = moment(maxTime)
+            newMaxTime.set('hour', availability[0][1])
+            newMaxTime.set('minute', 0)
+            newMaxTime.set('second', 0)
+            setMaxTime(newMaxTime)
         }
+
         props.setDate(value)
     },[value.get('hour')])
 
@@ -81,7 +89,7 @@ export default function BarberDateTime(props) {
                         value={value}
                         views={['day', 'hours']}
                         onChange={(newValue) => {
-                            setValue(newValue);
+                            setValue(newValue.set('minute',0));
                         }}
                         shouldDisableDate={isWeekend}
                         minDate={moment()}
