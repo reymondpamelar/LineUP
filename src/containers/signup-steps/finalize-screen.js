@@ -1,4 +1,4 @@
-import StyleChoices from "../style-choices";
+import StyleChoices from "../../components/style-choices";
 import * as Icon from "react-feather";
 import moment from "moment";
 

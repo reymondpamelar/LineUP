@@ -11,8 +11,7 @@ import Lottie from "react-lottie";
 import animationData from "./assets/circular-line.json";
 import ChooseBarberScreen from "./containers/signup-steps/choose-barber-screen";
 import ChooseDatetime from "./containers/signup-steps/choose-datetime";
-import FinalizeScreen from "./components/style-screen/finalize-screen";
-import moment from "moment";
+import FinalizeScreen from "./containers/signup-steps/finalize-screen";
 
 function App() {
     const [step, setStep] = useState(0)
