@@ -39,7 +39,13 @@ export default function BarberDetails (props) {
                     {barber.name}
                 </div>
                 <div className={'flex justify-end'}>
-                    {stars.map((star) => {return star})}
+                    {stars.map((star,i) => {
+                        return (
+                            <span key={i}>
+                                {star}
+                            </span>
+                        )
+                    })}
                 </div>
             </div>
             <div className={'md:flex justify-center flex-wrap w-full mt-4 text-sm divide-y md:divide-y-0 md:divide-x gap-4 md:space-y-0'}>

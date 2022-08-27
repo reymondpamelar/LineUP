@@ -35,11 +35,9 @@ export default function ContactFormScreen (props) {
                 lastName,
                 emailAddress
             }
-            console.log(contactDetails)
             props.setContactDetails(contactDetails)
             props.setHairType(hairType)
             props.setStep(2)
-            console.log(hairType)
         }
     }
 

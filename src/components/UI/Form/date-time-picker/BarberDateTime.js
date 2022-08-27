@@ -14,10 +14,10 @@ import BarberDetails from "../../../barber-details";
 import {createTheme, ThemeProvider} from "@mui/material";
 
 export default function BarberDateTime(props) {
-    let availability = props.barberSettings.availability
+    let [availability] = useState(props.barberSettings.availability)
     let [minTime, setMinTime] = useState(moment())
     let [maxTime, setMaxTime] = useState(moment())
-    const [value, setValue] = useState(moment());
+    const [value, setValue] = useState(moment(props.date));
 
     useEffect(() => {
         let newValue = moment(value)
@@ -42,7 +42,7 @@ export default function BarberDateTime(props) {
             newMaxTime.set('second', 0)
             setMaxTime(newMaxTime)
         }
-        props.setDate(moment(value))
+        props.setDate(value)
     },[value.get('hour')])
 
     const isWeekend = (date) => {

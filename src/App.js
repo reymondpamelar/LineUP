@@ -12,6 +12,7 @@ import animationData from "./assets/circular-line.json";
 import ChooseBarberScreen from "./containers/signup-steps/choose-barber-screen";
 import ChooseDatetime from "./containers/signup-steps/choose-datetime";
 import FinalizeScreen from "./components/style-screen/finalize-screen";
+import moment from "moment";
 
 function App() {
     const [step, setStep] = useState(0)
@@ -26,7 +27,7 @@ function App() {
         {index: 1, title:'contact',content: <ContactFormScreen setStep={setStep} setContactDetails={setContactDetails} setHairType={setHairType}/>},
         {index: 2, title:'style',content: <StyleScreen setStep={setStep} contactDetails={contactDetails} setStyleSettings={setStyleSettings}/>},
         {index: 3, title:'barber',content: <ChooseBarberScreen setStep={setStep} setBarberSettings={setBarberSettings}/>},
-        {index: 4, title:'dateTime',content: <ChooseDatetime setStep={setStep} barberSettings={barberSettings} setDate={setDate}/>},
+        {index: 4, title:'dateTime',content: <ChooseDatetime setStep={setStep} barberSettings={barberSettings} date={date} setDate={setDate}/>},
         {index: 5, title:'finalize',content: <FinalizeScreen setStep={setStep} barberSettings={barberSettings} styleSettings={styleSettings} date={date}/>},
     ]
 

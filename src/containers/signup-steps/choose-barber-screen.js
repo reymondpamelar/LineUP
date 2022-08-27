@@ -101,7 +101,7 @@ export default function ChooseBarberScreen(props) {
                             setChosenBarber(barber)
                         }
                         return(
-                            <div>
+                            <div key={barber.name}>
                                 <input onChange={(e) => handleChange(e)} value={barber.name} name={'chooseBarber'} id={barber.name} type={'radio'} className={'hidden peer'}/>
                                 <BarberDetails barber={barber} chosenBarber={chosenBarber.name} forList={true}/>
                             </div>

@@ -262,10 +262,6 @@ const styles = [
             </div>
         </label>
     },
-    {
-        name: '',
-        content: null
-    },
 ]
 
 
@@ -276,25 +272,33 @@ export default function StyleChoices(props){
             <div className={' mt-4 gap-10 flex justify-center flex-wrap'}>
                 {styles.map((style) => {
                     if(style.name === props.styleSettings.preset){
-                        return style.content
+                        return <div key={style.name}>
+                            {style.content}
+                        </div>
                     }
                 })}
 
                 {styles.map((style) => {
                     if(style.name === props.styleSettings.trimSet.trimStyle){
-                        return style.content
+                        return <div key={style.name}>
+                            {style.content}
+                        </div>
                     }
                 })}
 
                 {styles.map((style) => {
                     if(props.styleSettings.trimSet.trimTypes.includes(style.name)){
-                        return style.content
+                        return <div key={style.name}>
+                            {style.content}
+                        </div>
                     }
                 })}
 
                 {styles.map((style) => {
                     if(style.name === props.styleSettings.fadeType){
-                        return style.content
+                        return <div key={style.name}>
+                            {style.content}
+                        </div>
                     }
                 })}
             </div>

@@ -7,8 +7,6 @@ export default function FinalizeScreen (props) {
     function handleSubmit(e){
 
     }
-    console.log(props.styleSettings)
-    console.log(props.date)
     return (
         <div className={'px-10'}>
             <div>
@@ -16,10 +14,10 @@ export default function FinalizeScreen (props) {
                     You will be scheduled with <span className={'text-[#ECB984]'}> {props.barberSettings.name} </span> for:
                 </h2>
                 <h1 className={'text-[#ECB984]'}>
-                    {props.date._i.format('dddd')}, {props.date._i.format('h a')}
+                    {props.date.format('dddd')}, {props.date.format('h a')}
                 </h1>
                 <h1 className={'border-b-2 mb-10 pb-10 text-[#ECB984]'}>
-                    {props.date._i.format('MMMM DD')}
+                    {props.date.format('MMMM DD')}
                 </h1>
             </div>
             <div>

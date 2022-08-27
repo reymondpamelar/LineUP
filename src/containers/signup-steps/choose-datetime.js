@@ -37,10 +37,12 @@ export default function ChooseDatetime(props) {
             </div>
             <div className={''}>
                 <FlipMove enterAnimation={customEnterAnimation} leaveAnimation={customLeaveAnimation} staggerDelayBy={100} staggerDurationBy={50}>
-                    <h1 >
+                    <h1 key={'dateTimeText'}>
                         Choose a date and time:
                     </h1>
-                    <BarberDateTime setStep={props.setStep} barberSettings={props.barberSettings} setDate={props.setDate}/>
+                    <div key={'dateTime'}>
+                        <BarberDateTime setStep={props.setStep} barberSettings={props.barberSettings} date={props.date} setDate={props.setDate}/>
+                    </div>
                 </FlipMove>
             </div>
         </div>
