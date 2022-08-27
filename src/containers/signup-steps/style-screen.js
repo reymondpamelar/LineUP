@@ -2,9 +2,9 @@ import 'animate.css';
 import * as Icon from "react-feather";
 import {useEffect, useState} from "react";
 import FlipMove from "react-flip-move";
-import Preset from "./style-screen/preset";
-import Trim from "./style-screen/trim";
-import Fade from "./style-screen/fade";
+import Preset from "../../components/style-screen/preset";
+import Trim from "../../components/style-screen/trim";
+import Fade from "../../components/style-screen/fade";
 
 export default function StyleScreen(props) {
     const [step, setStep] = useState(0)

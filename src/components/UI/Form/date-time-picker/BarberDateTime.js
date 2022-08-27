@@ -17,7 +17,6 @@ export default function BarberDateTime(props) {
     let availability = props.barberSettings.availability
     let [minTime, setMinTime] = useState(moment())
     let [maxTime, setMaxTime] = useState(moment())
-
     const [value, setValue] = useState(moment());
 
     useEffect(() => {
@@ -43,7 +42,8 @@ export default function BarberDateTime(props) {
             newMaxTime.set('second', 0)
             setMaxTime(newMaxTime)
         }
-    },[value])
+        props.setDate(moment(value))
+    },[value.get('hour')])
 
     const isWeekend = (date) => {
         const day = date.day();
@@ -66,6 +66,10 @@ export default function BarberDateTime(props) {
             },
         },
     });
+
+    function nextStep(){
+        props.setStep(5)
+    }
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <ThemeProvider theme={theme}>
@@ -85,6 +89,12 @@ export default function BarberDateTime(props) {
                         maxTime={moment(maxTime)}
                     />
                 </Stack>
+                <div id={'bottom'} className={'w-full flex justify-end mt-10 pb-10'}>
+                    <button onClick={() => nextStep()} className={'gap-4 flex items-center rounded-xl bg-[#D58258] hover:bg-black text-white p-4 px-10 animate__animated animate__fadeInDown transition ease-in-out duration-200'}>
+                        Next
+                        <Icon.ChevronRight className={'w-5'}/>
+                    </button>
+                </div>
             </ThemeProvider>
         </LocalizationProvider>
     );

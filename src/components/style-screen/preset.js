@@ -1,4 +1,4 @@
-import TextInput from "../../../components/UI/Form/text-input";
+import TextInput from "../UI/Form/text-input";
 import * as Icon from "react-feather";
 
 export default function Preset (props) {

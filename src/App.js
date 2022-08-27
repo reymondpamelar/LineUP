@@ -11,6 +11,7 @@ import Lottie from "react-lottie";
 import animationData from "./assets/circular-line.json";
 import ChooseBarberScreen from "./containers/signup-steps/choose-barber-screen";
 import ChooseDatetime from "./containers/signup-steps/choose-datetime";
+import FinalizeScreen from "./components/style-screen/finalize-screen";
 
 function App() {
     const [step, setStep] = useState(0)
@@ -18,13 +19,15 @@ function App() {
     const [hairType, setHairType] = useState({})
     const [styleSettings, setStyleSettings] = useState({})
     const [barberSettings, setBarberSettings] = useState({})
+    const [date, setDate] = useState(new Date())
 
     const pages = [
         {index: 0, title:'welcome', content: <WelcomeScreen setStep={setStep}/>},
         {index: 1, title:'contact',content: <ContactFormScreen setStep={setStep} setContactDetails={setContactDetails} setHairType={setHairType}/>},
         {index: 2, title:'style',content: <StyleScreen setStep={setStep} contactDetails={contactDetails} setStyleSettings={setStyleSettings}/>},
         {index: 3, title:'barber',content: <ChooseBarberScreen setStep={setStep} setBarberSettings={setBarberSettings}/>},
-        {index: 4, title:'dateTime',content: <ChooseDatetime setStep={setStep} barberSettings={barberSettings}/>},
+        {index: 4, title:'dateTime',content: <ChooseDatetime setStep={setStep} barberSettings={barberSettings} setDate={setDate}/>},
+        {index: 5, title:'finalize',content: <FinalizeScreen setStep={setStep} barberSettings={barberSettings} styleSettings={styleSettings} date={date}/>},
     ]
 
     const defaultOptions = {
