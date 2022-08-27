@@ -13,6 +13,7 @@ import ChooseBarberScreen from "./containers/signup-steps/choose-barber-screen";
 import ChooseDatetime from "./containers/signup-steps/choose-datetime";
 import FinalizeScreen from "./containers/signup-steps/finalize-screen";
 import moment from "moment";
+import ConfirmationScreen from "./containers/signup-steps/confirmation-screen";
 
 function App() {
     const [step, setStep] = useState(0)
@@ -29,6 +30,7 @@ function App() {
         {index: 3, title:'barber',content: <ChooseBarberScreen setStep={setStep} setBarberSettings={setBarberSettings}/>},
         {index: 4, title:'dateTime',content: <ChooseDatetime setStep={setStep} barberSettings={barberSettings} date={date} setDate={setDate}/>},
         {index: 5, title:'finalize',content: <FinalizeScreen setStep={setStep} contactDetails={contactDetails} hairType={hairType} styleSettings={styleSettings} barberSettings={barberSettings} date={date}/>},
+        {index: 6, title:'confirmation',content: <ConfirmationScreen setStep={setStep} contactDetails={contactDetails}/>},
     ]
 
     const defaultOptions = {
@@ -52,7 +54,7 @@ function App() {
         <div className="App">
             <CenteredLayout>
                 <div className={'fixed left-4 top-4 z-10'}>
-                    {step > 0 ?
+                    {step > 0 && step != 6 ?
                         <Icon.ChevronLeft onClick={() => setStep(step-1)} size={40} className={'cursor-pointer transition ease-in-out duration-200 hover:scale-150'}/>
                         :
                         null
