@@ -42,7 +42,7 @@ export default function ContactFormScreen (props) {
     }
 
     return (
-        <div>
+        <div className={'px-20 transition ease-in-out duration-500 w-screen h-screen flex grid justify-center items-center p-10'}>
             <form onSubmit={handleSubmit} className={'px-20'}>
                 <div>
                     <h1 className={'relative'}>
@@ -160,7 +160,7 @@ export default function ContactFormScreen (props) {
                         </div>
                     </div>
                 </div>
-                <div className={'flex justify-end mt-10'}>
+                <div className={'flex justify-end my-10'}>
                     <button type={'submit'} className={'disabled:bg-gray-300 gap-4 flex items-center rounded-xl bg-[#D58258] hover:bg-black text-white p-4 px-10 animate__animated animate__fadeInDown transition ease-in-out duration-200'}>
                         Next
                         <Icon.ChevronRight className={'w-5'}/>

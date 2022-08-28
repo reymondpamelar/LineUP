@@ -36,7 +36,7 @@
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"yarn start\" \"yarn:electron\"",
     "electron": "wait-on tcp:3000 && electron .",
-    "build-windows": "electron-packager ./ lineUP --platform=win32 --arch=x64"
+    "build-windows": "electron-packager ./ lineUP --platform=win32 --arch=x64 --icon ./public/512x512.png --out ./dist"
   },
   "eslintConfig": {
     "extends": [
