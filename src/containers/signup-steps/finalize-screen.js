@@ -10,8 +10,10 @@ export default function FinalizeScreen (props) {
         contactDetails: props.contactDetails,
         hairType: props.hairType,
         styleSettings: props.styleSettings,
-        barber: props.barberSettings.name
+        barber: props.barberSettings.name,
+        date: props.date
     }
+    console.log(emailObject)
 
     const handleSubmit = async() =>{
         let sendEmail = await requestEmailConfirmation(emailObject)
