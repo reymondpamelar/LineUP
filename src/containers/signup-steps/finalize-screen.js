@@ -2,9 +2,12 @@ import StyleChoices from "../../components/style-choices";
 import * as Icon from "react-feather";
 import Lottie from "react-lottie";
 import animationData from "../../assets/horizontal-line.json";
+import * as loadingAnimationData from "../../assets/loading.json"
 import {requestEmailConfirmation} from "../../middleware";
+import {useState} from "react";
 
 export default function FinalizeScreen (props) {
+    const [isLoading, setIsLoading] = useState(false)
 
     const emailObject = {
         contactDetails: props.contactDetails,
@@ -16,6 +19,7 @@ export default function FinalizeScreen (props) {
     console.log(emailObject)
 
     const handleSubmit = async() =>{
+        setIsLoading(true)
         let sendEmail = await requestEmailConfirmation(emailObject)
         if(sendEmail.status === 200){
             nextStep()
@@ -39,6 +43,14 @@ export default function FinalizeScreen (props) {
         }
     };
 
+    const loadingOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: loadingAnimationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
     return (
         <div className={' px-20 transition ease-in-out duration-500 w-screen h-screen flex grid justify-center items-center p-10'}>
             <div>
@@ -69,10 +81,20 @@ export default function FinalizeScreen (props) {
                     <StyleChoices styleSettings={props.styleSettings}/>
                 </div>
                 <div id={'animate1'} className={'w-full flex justify-center md:justify-end mt-10 pb-10 px-10 animate__animated'}>
-                    <button onClick={() => handleSubmit()} className={'gap-4 flex items-center rounded-xl bg-[#D58258] hover:bg-black text-white p-4 px-10 animate__animated animate__fadeInDown transition ease-in-out duration-200'}>
-                        Submit
-                        <Icon.ChevronRight className={'w-5'}/>
-                    </button>
+                    <div className={'h-16'}>
+                        {isLoading ?
+                            <div className={'w-20 rounded-full border p-4'}>
+                                <Lottie
+                                    options={loadingOptions}
+                                />
+                            </div>
+                            :
+                            <div onClick={() => handleSubmit()} className={'gap-4 flex items-center rounded-xl bg-[#D58258] hover:bg-black text-white p-4 px-10 animate__animated animate__fadeInDown transition ease-in-out duration-200'}>
+                                submit
+                                <Icon.ChevronRight className={'w-5'}/>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
