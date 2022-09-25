@@ -1,6 +1,6 @@
 ## Overview
 ### Description
-An app to automate the process of scheduling an appointment with your barber.
+An app to schedule an appointment with your barber and give them the specifics of a haircut.
 
 ### High Concept
 Barbers and their talent of cutting hair perform a sort of art when working on their clients. Similar to an artist, they must plan and prepare with a mental image of what the client wants out of their time at the barbershop. Imagine making an appointment with your barber while giving them a good understanding as to the type of haircut that you want. Not only will you guarantee a specified time and date with your preferred barber, you will ensure that your barber is prepared with everything he needs to fix you up!
