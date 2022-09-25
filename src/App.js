@@ -2,7 +2,7 @@ import './App.css';
 import CenteredLayout from "./layouts/centered";
 import 'animate.css';
 import * as Icon from "react-feather";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import ContactFormScreen from "./containers/signup-steps/contact-form-screen";
 import WelcomeScreen from "./containers/signup-steps/welcome-screen";
 import FlipMove from "react-flip-move";
@@ -54,7 +54,7 @@ function App() {
         <div className="App">
             <CenteredLayout>
                 <div className={'fixed left-4 top-4 z-10'}>
-                    {step > 0 && step != 6 ?
+                    {step > 0 && step !== 6 ?
                         <Icon.ChevronLeft onClick={() => setStep(step-1)} size={40} className={'cursor-pointer transition ease-in-out duration-200 hover:scale-150'}/>
                         :
                         null
@@ -78,6 +78,7 @@ function App() {
                                 </div>
                             )
                         }
+                        return null
                     })}
                 </FlipMove>
             </CenteredLayout>
