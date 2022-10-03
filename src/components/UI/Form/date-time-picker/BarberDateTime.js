@@ -21,9 +21,9 @@ export default function BarberDateTime(props) {
     useEffect(() => {
         let day = value.get('day')
 
-
-        if(day !== 6 && day !== 7){
+        if(day !== 0 && day !== 6 && day !== 7){
             let newMinTime = moment(minTime)
+            console.log(day)
             newMinTime.set('hour', availability[day-1][0])
             newMinTime.set('minute', 0)
             newMinTime.set('second', 0)
