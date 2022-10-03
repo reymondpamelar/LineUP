@@ -1,4 +1,4 @@
-import StyleChoices from "../../components/style-choices";
+
 import * as Icon from "react-feather";
 import Lottie from "react-lottie";
 import animationData from "../../assets/checkmark.json";

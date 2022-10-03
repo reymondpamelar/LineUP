@@ -1,5 +1,5 @@
 import * as Icon from "react-feather";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 export default function BarberDetails (props) {
     const [barber, setBarber] = useState(props.barber)

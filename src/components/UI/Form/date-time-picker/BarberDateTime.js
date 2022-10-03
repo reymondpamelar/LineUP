@@ -2,7 +2,6 @@ import 'animate.css';
 import * as Icon from "react-feather";
 import {useEffect, useState} from "react";
 
-import dayjs from 'dayjs';
 import moment from 'moment';
 
 import TextField from '@mui/material/TextField';
